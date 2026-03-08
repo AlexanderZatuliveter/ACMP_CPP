@@ -1,0 +1,47 @@
+{
+    "cSpell.language": "en,ru",
+    "cSpell.enabled": true,
+    "cSpell.maxNumberOfProblems": 10000,
+    "cSpell.numSuggestions": 8,
+    "cSpell.spellCheckDelayMs": 500,
+
+    // Словари, которые будут использоваться
+    "cSpell.dictionaries": [
+        "russian",
+        "en_US",
+        "softwareTerms",
+        "misc"
+    ],
+
+    // Список слов-исключений (ваши кастомные слова)
+    "cSpell.userWords": [
+        "айди",
+        "конфиг",
+        "фронтенд",
+        "бэкенд"
+    ],
+
+    // Игнорировать проверку в этих файлах/папках
+    "cSpell.ignorePaths": [
+        "node_modules/**",
+        "dist/**",
+        ".git/**",
+        "package-lock.json",
+        "*.log"
+    ],
+
+    // Какие расширения файлов проверять (если нужно ограничить)
+    "cSpell.enabledFileTypes": {
+        "markdown": true,
+        "plaintext": true,
+        "typescript": true,
+        "javascript": true,
+        "json": true
+    },
+    "cSpell.words": [
+        "jhon",
+        "skuby",
+        "vova",
+        "перемешиваемость"
+    ]
+}
