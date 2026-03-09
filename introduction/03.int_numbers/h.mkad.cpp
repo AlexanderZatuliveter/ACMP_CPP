@@ -1,19 +1,16 @@
 #include <iostream>
 using namespace std;
 
-string fn(int number)
+string fn(int speed, int time)
 {
-    int res = 0;
-    for (char c : to_string(number)) {
-        res += c - '0';
-    }
+    int res = ((speed * time) % 109 + 109) % 109 + 1;
     return to_string(res);
 }
 
 int main1() {
-    int number;
-    cin >> number;
-    cout << fn(number);
+    int speed, time;
+    cin >> speed >> time;
+    cout << fn(speed, time);
     return 0;
 }
 
@@ -29,9 +26,9 @@ void expect(string actual, string expected, string test_name = "") {
 
 int main() {
     // INPUT.TXT -> OUTPUT.TXT 
-    expect(fn(123), "6");
-    expect(fn(999), "27");
-    expect(fn(154), "10");
-    expect(fn(0), "0");
+    expect(fn(60, 2), "12");
+    expect(fn(-1, 1), "109");
+    expect(fn(109, 1), "1");
+    expect(fn(109, 2), "1");
     return 0;
 }

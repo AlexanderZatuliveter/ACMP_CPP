@@ -1,19 +1,21 @@
 #include <iostream>
 using namespace std;
 
-string fn(int number)
-{
-    int res = 0;
-    for (char c : to_string(number)) {
-        res += c - '0';
+string fn(int people_num, int apples_num)
+{   
+    string div = to_string(apples_num / people_num);
+    if (apples_num % people_num == 0) {
+        return div + " 0 0";
     }
-    return to_string(res);
+    else {
+        return div + ' ' + to_string(apples_num % people_num) + ' ' + to_string(people_num - apples_num % people_num);
+    }
 }
 
 int main1() {
-    int number;
-    cin >> number;
-    cout << fn(number);
+    int people_num, apples_num;
+    cin >> people_num >> apples_num;
+    cout << fn(people_num, apples_num);
     return 0;
 }
 
@@ -29,9 +31,7 @@ void expect(string actual, string expected, string test_name = "") {
 
 int main() {
     // INPUT.TXT -> OUTPUT.TXT 
-    expect(fn(123), "6");
-    expect(fn(999), "27");
-    expect(fn(154), "10");
-    expect(fn(0), "0");
+    expect(fn(7, 30), "4 2 5");
+    expect(fn(5, 15), "3 0 0");
     return 0;
 }

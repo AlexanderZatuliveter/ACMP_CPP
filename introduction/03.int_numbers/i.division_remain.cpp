@@ -1,19 +1,25 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-string fn(int number)
+string fn(int num1, int num2)
 {
     int res = 0;
-    for (char c : to_string(number)) {
-        res += c - '0';
+    if (num1 == abs(num1) && num2 == abs(num2))
+        res = num1 - (num1 / num2) * num2;
+    else {
+        if ((float)num1 / (float)num2 < 0)
+            res = num1 - floor((float)num1 / (float)num2) * num2;
+        else
+            res = num1 - ceil((float)num1 / (float)num2) * num2;
     }
     return to_string(res);
 }
 
 int main1() {
-    int number;
-    cin >> number;
-    cout << fn(number);
+    int num1, num2;
+    cin >> num1 >> num2;
+    cout << fn(num1, num2);
     return 0;
 }
 
@@ -29,9 +35,9 @@ void expect(string actual, string expected, string test_name = "") {
 
 int main() {
     // INPUT.TXT -> OUTPUT.TXT 
-    expect(fn(123), "6");
-    expect(fn(999), "27");
-    expect(fn(154), "10");
-    expect(fn(0), "0");
+    expect(fn(27, 4), "3");
+    expect(fn(-15, 4), "1");
+    expect(fn(113, -3), "2");
+    expect(fn(-15, -7), "6");
     return 0;
 }

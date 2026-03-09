@@ -3,10 +3,7 @@ using namespace std;
 
 string fn(int number)
 {
-    int res = 0;
-    for (char c : to_string(number)) {
-        res += c - '0';
-    }
+    int res = (number / 10) % 10;
     return to_string(res);
 }
 
@@ -29,9 +26,9 @@ void expect(string actual, string expected, string test_name = "") {
 
 int main() {
     // INPUT.TXT -> OUTPUT.TXT 
-    expect(fn(123), "6");
-    expect(fn(999), "27");
-    expect(fn(154), "10");
-    expect(fn(0), "0");
+    expect(fn(123), "2");
+    expect(fn(46), "4");
+    expect(fn(532), "3");
+    expect(fn(1692), "9");
     return 0;
 }

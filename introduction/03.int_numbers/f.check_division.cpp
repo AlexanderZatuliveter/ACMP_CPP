@@ -1,19 +1,18 @@
 #include <iostream>
 using namespace std;
 
-string fn(int number)
+string fn(int num1, int num2)
 {
-    int res = 0;
-    for (char c : to_string(number)) {
-        res += c - '0';
-    }
-    return to_string(res);
+    if (num1 % num2 == 0 || num2 % num1 == 0)
+        return "1";
+    else
+        return "67";
 }
 
 int main1() {
-    int number;
-    cin >> number;
-    cout << fn(number);
+    int num1, num2;
+    cin >> num1 >> num2;
+    cout << fn(num1, num2);
     return 0;
 }
 
@@ -29,9 +28,8 @@ void expect(string actual, string expected, string test_name = "") {
 
 int main() {
     // INPUT.TXT -> OUTPUT.TXT 
-    expect(fn(123), "6");
-    expect(fn(999), "27");
-    expect(fn(154), "10");
-    expect(fn(0), "0");
+    expect(fn(3, 6), "1");
+    expect(fn(6, 3), "1");
+    expect(fn(5, 7), "67");
     return 0;
 }
