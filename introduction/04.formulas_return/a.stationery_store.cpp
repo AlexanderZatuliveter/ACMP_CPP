@@ -1,20 +1,17 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
-string fn(long long num1, long long num2)
+string fn(long long pencils, long long pens, long long felt_tip_pen)
 {
     long long res = 0;
-    res = num1 % num2;
-    if (res < 0)
-        res += abs(num2);
+    res = 3 * pencils + 5 * pens + 12 * felt_tip_pen;
     return to_string(res);
 }
 
 int main1() {
-    long long num1, num2;
-    cin >> num1 >> num2;
-    cout << fn(num1, num2);
+    long long pencils, pens, felt_tip_pen;
+    cin >> pencils >> pens >> felt_tip_pen;
+    cout << fn(pencils, pens, felt_tip_pen);
     return 0;
 }
 
@@ -30,9 +27,6 @@ void expect(string actual, string expected, string test_name = "") {
 
 int main() {
     // INPUT.TXT -> OUTPUT.TXT 
-    expect(fn(27, 4), "3");
-    expect(fn(-15, 4), "1");
-    expect(fn(113, -3), "2");
-    expect(fn(-15, -7), "6");
+    expect(fn(1, 1, 1), "20");
     return 0;
 }

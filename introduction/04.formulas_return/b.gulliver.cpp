@@ -2,19 +2,16 @@
 #include <cmath>
 using namespace std;
 
-string fn(long long num1, long long num2)
+string fn(int how_bigger, int mattress_layers)
 {
-    long long res = 0;
-    res = num1 % num2;
-    if (res < 0)
-        res += abs(num2);
+    int res = pow(how_bigger, 2) * mattress_layers;
     return to_string(res);
 }
 
 int main1() {
-    long long num1, num2;
-    cin >> num1 >> num2;
-    cout << fn(num1, num2);
+    int how_bigger, mattress_layers;
+    cin >> how_bigger >> mattress_layers;
+    cout << fn(how_bigger, mattress_layers);
     return 0;
 }
 
@@ -30,9 +27,7 @@ void expect(string actual, string expected, string test_name = "") {
 
 int main() {
     // INPUT.TXT -> OUTPUT.TXT 
-    expect(fn(27, 4), "3");
-    expect(fn(-15, 4), "1");
-    expect(fn(113, -3), "2");
-    expect(fn(-15, -7), "6");
+    expect(fn(2, 2), "8");
+    expect(fn(12, 4), "576");
     return 0;
 }
