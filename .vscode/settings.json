@@ -44,5 +44,13 @@
         "skuby",
         "vova",
         "перемешиваемость"
-    ]
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "**/__pycache__": true,
+        "**/*.exe": true,
+        "build/": true
+    }
 }
