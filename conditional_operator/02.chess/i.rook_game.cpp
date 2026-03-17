@@ -1,16 +1,17 @@
 #include <iostream>
 using namespace std;
- 
-string fn(int x1, int y1, int x2, int y2)
+
+string fn(int x, int y)
 {
-    return (abs(x1 - x2) <= 1 && abs(y1 - y2) <= 1) ? "YES" : "NO";
+    if (x == 1 && y == 1) return "0";
+    if (x == y) return "2";
+    if (x != y) return "1";
 }
- 
+
 int main1() {
-    int x1, y1, x2, y2;
-    cin >> x1 >> y1;
-    cin >> x2 >> y2;
-    cout << fn(x1, y1, x2, y2);
+    int x, y;
+    cin >> x >> y;
+    cout << fn(x, y);
     return 0;
 }
 
@@ -26,7 +27,10 @@ void expect(string actual, string expected, string test_name = "") {
 
 int main() {
     // INPUT.TXT -> OUTPUT.TXT 
-    expect(fn(3, 3, 4, 3), "YES");
-    expect(fn(3, 3, 5, 3), "NO");
+    expect(fn(0, 0), "0");
+    expect(fn(1, 1), "0");
+    expect(fn(1, 6), "1");
+    expect(fn(4, 12), "2");
+    expect(fn(20, 20), "2");
     return 0;
 }
