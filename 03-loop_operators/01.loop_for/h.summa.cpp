@@ -1,26 +1,27 @@
 #include <iostream>
-#include <cmath>
+#include <vector>
 using namespace std;
 
-string fn(int sum, int prod)
+string fn(int n)
 {
-    int num1, num2;
-    int d = pow(sum, 2) - 4*prod;
-    if (d == 0) {
-        num1 = sum / 2;
-        num2 = sum - num1;
+    int sum = 0;
+    if (n <= 0) {
+        for (int i = 1; i >= n; i--) {
+            sum += i;
+        }
     }
     else {
-        num1 = (sum + sqrt(d)) / 2;
-        num2 = (sum - sqrt(d)) / 2;
+        for (int i = 1; i <= n; i++) {
+            sum += i;
+        }
     }
-    return to_string(min(num1, num2)) + ' ' + to_string(max(num1, num2));
+    return to_string(sum);
 }
 
 int main1() {
-    int sum, prod;
-    cin >> sum >> prod;
-    cout << fn(sum, prod);
+    int n;
+    cin >> n;
+    cout << fn(n);
     return 0;
 }
 
@@ -36,8 +37,12 @@ void expect(string actual, string expected, string test_name = "") {
 
 int main() {
     // INPUT.TXT -> OUTPUT.TXT 
-    expect(fn(4, 4), "2 2");
-    expect(fn(5, 6), "2 3");
-    expect(fn(10, 24), "4 6");
+    expect(fn(5), "15");
+    expect(fn(6), "21");
+    expect(fn(7), "28");
+    expect(fn(-1), "0");
+    expect(fn(-3), "-5");
+    expect(fn(1), "1");
+    expect(fn(0), "1");
     return 0;
 }
